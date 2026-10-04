@@ -1,0 +1,543 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chaitali K | CSE Student Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #263238;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background: #172a46;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #72c6ef;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #172a46, #28527a);
+            color: white;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 21px;
+            font-weight: normal;
+            color: #d7e9f7;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 17px;
+            color: #e7f0f7;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 11px 23px;
+            background: white;
+            color: #172a46;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #72c6ef;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1050px;
+            margin: auto;
+            padding: 65px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #172a46;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .goal {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-left: 4px solid #28527a;
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        .goal strong {
+            color: #172a46;
+        }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 26px;
+            border-radius: 10px;
+            border: 1px solid #e1e7ed;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.09);
+        }
+
+        .activity-number {
+            display: inline-block;
+            color: #28527a;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-card h3 {
+            color: #172a46;
+            font-size: 20px;
+            margin-bottom: 11px;
+        }
+
+        .project-card p {
+            font-size: 15px;
+            color: #4b5965;
+            margin-bottom: 18px;
+        }
+
+        .github-link {
+            color: #28527a;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: auto;
+            word-break: break-all;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            background: white;
+            padding: 10px 17px;
+            border-radius: 20px;
+            border: 1px solid #d8e0e8;
+            color: #28527a;
+            font-weight: bold;
+        }
+
+        /* Contact */
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+        }
+
+        .contact-box p {
+            margin-bottom: 15px;
+        }
+
+        .contact-box a {
+            color: #28527a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #172a46;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            font-size: 14px;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 70px 20px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 18px;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Chaitali K</div>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Chaitali K</h1>
+
+        <h2>3rd Semester CSE Student</h2>
+
+        <p>
+            Learning programming, problem-solving and practical development
+            through Java, SQL, C, Data Structures and coding activities.
+        </p>
+
+        <a href="#projects" class="hero-button">View My Work</a>
+    </div>
+
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-content">
+
+            <p>
+                I am a 3rd semester CSE student currently learning Java,
+                SQL, Data Structures, and C programming. I am interested in
+                improving my programming and problem-solving skills and
+                building practical projects.
+            </p>
+
+            <div class="goal">
+                <strong>My Learning Goal:</strong>
+                My goal is to improve my programming and problem-solving
+                skills, strengthen my knowledge of Java, SQL, C, and Data
+                Structures, and build practical projects that will help me
+                prepare for a career in the software industry.
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Projects / Activities Section -->
+    <section id="projects">
+        <h2 class="section-title">Activities & Projects</h2>
+
+        <div class="projects">
+
+            <!-- Activity 1 -->
+            <div class="project-card">
+                <span class="activity-number">Activity 1</span>
+
+                <h3>C Programming Setup</h3>
+
+                <p>
+                    Set up VS Code with the C/C++ extension and configured
+                    GCC/MinGW-w64. Successfully wrote, compiled, and
+                    executed a Hello World C program.
+                </p>
+
+                <a
+                    class="github-link"
+                    href="https://github.com/kadalagichaitali9-ux/MyProject.git"
+                    target="_blank">
+                    View on GitHub →
+                </a>
+            </div>
+
+
+            <!-- Activity 2 -->
+            <div class="project-card">
+                <span class="activity-number">Activity 2</span>
+
+                <h3>VS Code Tools</h3>
+
+                <p>
+                    Worked with VS Code extensions and learned about
+                    Prettier, GitLens, and Live Share for code formatting,
+                    code history, and real-time collaboration.
+                </p>
+            </div>
+
+
+            <!-- Activity 3 -->
+            <div class="project-card">
+                <span class="activity-number">Activity 3</span>
+
+                <h3>Live Share Collaboration</h3>
+
+                <p>
+                    Worked with my pairing partner Chinmayi K C
+                    (GitHub username: Chinmayikc) using Live Share.
+                    We built the greet() function together and learned
+                    how real-time collaboration can make coding and
+                    communication easier.
+                </p>
+            </div>
+
+
+            <!-- Activity 4 -->
+            <div class="project-card">
+                <span class="activity-number">Activity 4</span>
+
+                <h3>LeetCode Practice</h3>
+
+                <p>
+                    Practiced LeetCode problems including Two Sum,
+                    Reverse a String, Valid Anagram, Best Time to Buy
+                    and Sell Stock, Longest Common Prefix, Binary Search,
+                    Move Zeroes, and Valid Parentheses.
+                </p>
+
+                <a
+                    class="github-link"
+                    href="https://github.com/kadalagichaitali9-ux/leetcode-solutions.git"
+                    target="_blank">
+                    View on GitHub →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skills">
+            <span class="skill">C</span>
+            <span class="skill">Java</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Data Structures</span>
+            <span class="skill">Git</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">VS Code</span>
+            <span class="skill">GitLens</span>
+            <span class="skill">Live Share</span>
+            <span class="skill">LeetCode</span>
+            <span class="skill">Problem-Solving</span>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact-box">
+
+            <p>
+                Interested in my coding activities, projects, or learning journey?
+            </p>
+
+            <p>
+                Feel free to connect with me through GitHub to explore my work
+                and follow my progress as I continue learning and building projects.
+            </p>
+
+            <p>
+                <strong>GitHub:</strong><br>
+
+                <a
+                    href="https://github.com/kadalagichaitali9-ux"
+                    target="_blank">
+                    github.com/kadalagichaitali9-ux
+                </a>
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © <span id="year"></span> Chaitali K | CSE Student
+        </p>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        // Automatically display the current year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+            link.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                const target =
+                    document.querySelector(this.getAttribute("href"));
+
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
